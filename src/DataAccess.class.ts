@@ -1,7 +1,8 @@
 import { IDataAccess } from './interfaces/IDataAccess.interface';
 import { DBAccess } from './DBAccess.class';
+import { Item } from './Item.class';
 
-export class DataAccess<T> implements IDataAccess<T> {
+export class DataAccess<T extends Item> implements IDataAccess<T> {
   private connection: Promise<IDBDatabase>;
 
   constructor(dbName: string, private storeName: string) {

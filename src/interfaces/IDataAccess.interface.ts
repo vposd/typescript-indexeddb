@@ -1,3 +1,5 @@
+import { Item } from "../Item.class";
+
 interface IRead<T> {
   retrieve(): Promise<T[]>;
   get(uid: string): Promise<T>;
@@ -9,4 +11,4 @@ interface IWrite<T> {
   remove(uid: string): Promise<T>;
 }
 
-export interface IDataAccess<T> extends IRead<T>, IWrite<T> {}
+export interface IDataAccess<T extends Item> extends IRead<T>, IWrite<T> {}
